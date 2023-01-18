@@ -1,0 +1,15 @@
+<br>
+<br>
+<div class = "columns is-centered">
+  <h1 class = "has-text-link is-size-3">Editing review</h1>
+</div>
+
+<div class = "columns is-centered">
+<%= render "form", review: @review %>
+</div>
+<br>
+
+<div class = "columns is-centered">
+  <%= link_to "Show this review", @review, class: "button is-light is-link is-small"%> 
+  <%= link_to "Back to reviews", reviews_path, class: "button is-light is-link is-small"%>
+</div>

@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<br>
+<div class= "columns is-centered py-3">
+  <h2>Resend unlock instructions</h2>
+</div>
+
+<div class= "columns is-centered py-3">
+<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Resend unlock instructions" %>
+  </div>
+<% end %>
+</div>
+
+<div class= "columns is-centered py-3">
+  <%= render "devise/shared/links" %>
+</div>

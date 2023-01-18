@@ -1,0 +1,13 @@
+<div id="<%= dom_id presentation %>">
+  <p>
+    <strong> Presentation Title:</strong>
+    <%= presentation.name %>
+  </p>
+
+  <p>
+    <strong>Created by: </strong>
+    <%= presentation.user.email %>
+  </p>
+  <%= render "presentations/attachment", presentation:presentation %>
+
+</div>

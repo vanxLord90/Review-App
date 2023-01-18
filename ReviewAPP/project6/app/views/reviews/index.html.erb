@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<br>
+
+<div class= "columns is-centered py-3">
+  <h1 class = "has-text-link is-size-3">Reviews</h1>
+</div>
+
+
+<div class= "columns is-centered">
+  <div id="reviews">
+    <% @reviews.each do |review| %>
+      <%= render review %>
+      <h2 class= "is-size-4 px-6"><%= link_to "Show this review", review, class: "button is-light is-link is-small" %></h2>
+    <% end %>
+  </div>
+</div>
+
+<div class= "columns is-centered">
+  <%= link_to "New review", new_review_path, class: "button is-light is-link is-small" %>
+</div>
+

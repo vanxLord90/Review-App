@@ -1,0 +1,10 @@
+<br>
+<div class = "columns is-centered">
+<%= render @review %>
+</div>
+<div class = "columns is-centered">
+  <%= link_to "Edit this review", edit_review_path(@review), class: "button is-light is-link is-small" %> 
+  <%= link_to "Back to reviews", reviews_path, class: "button is-light is-link is-small" %>
+  
+  <%= button_to "Destroy this review", @review, method: :delete, class: "button is-light is-link is-small" %>
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="stylesheets/welcome_page.css" rel= "stylesheet">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" 
+    integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+ 
+  <div class="navigation">
+    <div class="toggle">
+     </div>
+    <ul>
+      <li>
+          <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+          <span class="title" id="home"><%= link_to "Home", root_path %></span>
+      </li>
+      <li>
+          <span class="icon"><i class="fa fa-file-powerpoint-o" aria-hidden="true"></i></span>
+          <span class="title" id="pres"><%= link_to "Presentations", presentations_url %></span>
+      </li>
+      <li>
+          <span class="icon"><i class="fa fa-line-chart" aria-hidden="true"></i></span>
+          <span class="title" id="rev"><%= link_to "Reviews", reviews_url%></span>
+      </li>
+      <li>
+          <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+          <span class="title" id="out"><%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } %> </span>
+      </li>
+    </ul>
+   </div>
+  
+ <script>
+    var navigation=document.querySelector(".navigation");
+    document.querySelector(".toggle").onclick=function(){
+           this.classList.toggle("active");
+      navigation.classList.toggle("active");
+    }
+  </script>
+ <script>
+    document.getElementById("out").addEventListener("click",function(){
+      alert("Sorry To See You Leave");
+    })
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> 
+ 
+</head>    
+
+  <body>
+    <p class="alert"><%= alert %> </p>
+      <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<br>
+<br>
+<div class= "columns is-centered">
+  <h2 class = "has-text-link is-size-3">Reviews for <%= @presentation.name %></h2>
+</div>
+<div class= "columns is-centered">
+  <table class = "px-3">
+  <tr class = "px-3">
+    <th class = "px-3"> Comments </th>
+    <th class = "px-3"> Score </th>
+    <th class = "px-3"> Submitted by </th>
+  </tr>
+  <% @presentation.reviews.each do |rev| %>
+     <% if rev.user.admin? == false && current_user.id = @presentation.user_id %> 
+    <tr>
+    <td class = "px-3", "column is-half"><%= rev.comments %></td>
+    <td class = "px-3"><%= rev.score %></td>
+    <td class = "px-3"><%= rev.user.email %></td>
+ 
+    <% end %>
+  <% end%>    
+  </tr>
+
+   </table>
+</div>
+
+<div class= "columns is-centered">
+  <% if can? :edit, @presentation %><%=link_to "Edit this presentation", edit_presentation_path(@presentation), class: "button is-light is-link is-small"%> 
+  <% end %>
+  <div class = "px-3">
+
+    <%= link_to "Back to presentations", presentations_path, class: "button is-light is-link is-small" %>
+
+  </div>
+</div>
+<br>
+<div class= "columns is-centered">
+
+  <%if can? :destroy, @presentation %><%= button_to "Destroy this presentation", @presentation, method: :delete, class: "button is-light is-link is-small" %>
+  <% end %>
+
+</div>
+
+
+<div class= "columns is-centered">
+  <% if current_user.admin? || (current_user.id == @presentation.user_id && @presentation.user.email == current_user.email)   %>
+  <div class = "px-3">
+    <%= link_to "View Feedback", view_feedback_presentation_path(@presentation), class: "button is-light is-link is-small"%>
+  </div>
+  <% end %>
+</div>

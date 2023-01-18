@@ -1,0 +1,150 @@
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0; 
+  }
+  body {
+    background-color: #ffffff;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: auto 200px;
+    grid-template-rows: 70px auto;
+    grid-template-areas: 
+      'header header'
+      'main main'
+      'footer footer';
+  }
+  .header {
+    grid-area: header;
+    text-align: center;
+  }
+  .main{
+    grid-area: main;
+    text-align: center;
+  }
+  .content{
+    color: #c4bdb1;
+    background-color: #000;
+    font-weight: 600;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+  }
+  .main-content{
+    color: #c4bdb1;
+    font-weight: 600;
+    text-align: center;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+  }
+  .btn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-size: 17px;
+    background: #f7f5f2;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background: #c08bc4;
+    text-decoration: none;
+  }
+.navigation{
+  position: absolute;
+  width:50px;
+  height:50px;
+  background:lightblue;;
+  transition:width 0.5s, height 0.5s;
+  transition-delay: 0s, .75s;
+  z-index:100000;
+  border-radius:4px;
+  overflow: hidden;
+}
+.navigation .toggle{
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: blue;
+  width:100%;
+  height:50px;
+  transition:0.5s;
+}
+.navigation.active{
+  width:350px;
+  height:250px;
+  transition:width 0.5s, height 0.5s;
+  transition-delay: 0s, .75s;
+}
+
+.navigation .toggle.active::before{
+  transform: rotate(315deg);
+}
+.navigation .toggle::before{
+  content: '+';
+  position: absolute;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:50px;
+  height:50px;
+  color: white;
+  font-weight:400;
+  
+  transition:0.5s;
+} 
+.navigation .toggle.active{
+  background: black;
+}
+.navigation ul{
+  position: absolute;
+  left:0;
+  width:100%;
+}
+.navigation ul li{
+  position: relative;
+  list-style: none;
+  width:100%;
+}
+.navigation ul li:hover{
+    background:#b4b8bf;
+}
+.navigation ul li {
+  position: relative;
+  display: block;
+  width: 100%;
+  display:flex;
+  text-decoration: none;
+  color: blue;
+}
+.navigation ul li span.icon{
+  position: relative;
+  display: block;
+  min-width: 50px;
+  height: 50px;
+  text-align:center;
+  line-height:50px;
+} 
+.navigation ul li span.icon .fa{
+  font-size:30px;
+  color: blue;
+}
+.navigation ul li span.title{
+  position: relative;
+  display: block;
+  line-height:50px;
+  text-align:start;
+  white-space: nowrap;
+}
+.navigation ul li:hover a .icon .fa,
+.navigation ul li:hover a .title{
+  color: white;
+}

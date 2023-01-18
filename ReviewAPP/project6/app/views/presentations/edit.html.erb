@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<br>
+<div class= "columns is-centered py-3">
+  <h1 class = "has-text-link is-size-3">Editing presentation</h1>
+</div>
+
+<div class= "columns is-centered">
+  <%= render "form", presentation: @presentation %>
+</div>
+<br>
+
+<div class= "columns is-centered">
+  <%= link_to "Show this presentation", @presentation, class: "button is-light is-link is-small" %> |
+  <%= link_to "Back to presentations", presentations_path, class: "button is-light is-link is-small" %>
+</div>

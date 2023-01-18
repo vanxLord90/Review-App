@@ -1,0 +1,7 @@
+<%if presentation.file_upload.attached?%>
+<br>
+<div class="columns is-centered">
+     <%= link_to 'Download', url_for(presentation.file_upload), class:"message-file", class: "button is-light is-link is-small"  %>
+</div>
+<% end %>
+<br>

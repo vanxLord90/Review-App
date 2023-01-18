@@ -1,0 +1,26 @@
+<div id="<%= dom_id review %>">
+  <p>
+    <strong>Presentation:</strong>
+    <%= review.presentation.name %>
+  </p>
+  <p>
+    <strong>Comments:</strong>
+    <%= review.comments %>
+  </p>
+  <p>
+    <strong>User:</strong>
+    <%= review.user.email %>
+  </p>
+
+   <% if can? :grade, @review%>
+    <p>
+    <strong>Grade:</strong>
+    <%= review.grade %>
+    <%else%>
+    <p>
+    <strong>Score:</strong>
+    <%= review.score %>
+    </p>
+    <% end %>
+
+</div>

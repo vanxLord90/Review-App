@@ -1,0 +1,49 @@
+<%= form_with(model: review) do |form| %>
+  <% if review.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% review.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :presentation_id, style: "display: block" %>
+    <%= form.collection_select(:presentation_id, Presentation.where("user_id != ?", current_user.id), :id, :name, prompt: true) %>
+  </div>
+
+   <%if can? :grade, @review%>
+    <div>
+    <%= form.label :grade, "Grade", style: "display: block"%>
+    <%=form.number_field :grade %>
+    <%= form.label :score, style: "display: none"%>
+    <%= form.hidden_field :score, value: 0%>
+    </div>
+  <% else %>
+    <div>
+    <%= form.label :score, "Enter a score between 0 and 10", style: "display: block" %>
+    <%= form.number_field :score %>
+     <%= form.label :grade, style: "display: none"%>
+    <%= form.hidden_field :grade, value: 0%>
+    </div>
+  <%end%>
+
+ <div>
+    <%= form.label :comments, "Enter a comment less than 90 characters", style: "display: block" %>
+    <%= form.text_area :comments %>
+  </div>
+  
+  <div>
+    <%= form.label :user_id, style: "display: none" %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+ 
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
